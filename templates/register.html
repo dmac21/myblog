@@ -1,0 +1,18 @@
+{% extends "base.html"%}
+
+{% block page_content%}
+<div class="form-horizontal col-md-4" id="login_form">
+      <form action="/" class="form-signin" role="form">
+        <h2 class="form-signin-heading">用户注册</h2>
+        <input type="text" class="form-control" placeholder="请输入邮箱地址" required>
+      </br>
+        <input type="text" class="form-control" placeholder="请输入用户名" required>
+          </br>
+        <input type="password" class="form-control" placeholder="请输入密码" required>
+          </br>
+        <input type="password" class="form-control" placeholder="请再次输入密码" required>
+          </br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+      </form>
+</div>
+{% end %}

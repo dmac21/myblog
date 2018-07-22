@@ -1,0 +1,21 @@
+{% extends "base.html"%}
+
+{% block page_content%}
+<div class="form-horizontal col-md-4" id="login_form">
+      <form action="/" class="form-signin" role="form">
+        <h2 class="form-signin-heading">用户登录</h2>
+        <input type="text" class="form-control" placeholder="请输入用户名" required autofocus>
+      </br>
+        <input type="password" class="form-control" placeholder="请输入密码" required>
+          </br>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> 记住登录状态
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+      </form>
+    </br>
+    <p>新朋友？<a href="/register">点击此处注册</a></p>
+</div>
+{% end %}
