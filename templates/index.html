@@ -11,7 +11,11 @@
         <div class="col-md-8">
 
           <h1 class="my-4">
-            <small>近期文章</small>
+            {% if user %}
+            <small>你好，{{ user }}</small>
+            {% else %}
+            <small>你好，陌生人</small>
+            {% end %}
           </h1>
 
           <!-- Blog Post -->
