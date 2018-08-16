@@ -1,0 +1,312 @@
+Traceback (most recent call last):
+  File "app.py", line 10, in <module>
+    from handlers import *
+  File "/Users/guanjiacheng/python/vproject/myblog/handlers.py", line 5, in <module>
+    from models import User,s
+  File "/Users/guanjiacheng/python/vproject/myblog/models.py", line 19, in <module>
+    class User(Base):
+  File "/Users/guanjiacheng/python/vproject/myblog/models.py", line 31, in User
+    @property.setter
+TypeError: descriptor 'setter' requires a 'property' object but received a 'function'
+[I 180804 14:44:41 autoreload:199] /Users/guanjiacheng/python/vproject/myblog/models.py modified; restarting server
+[I 180804 14:48:51 autoreload:199] /Users/guanjiacheng/python/vproject/myblog/models.py modified; restarting server
+[I 180804 15:14:01 autoreload:199] /Users/guanjiacheng/python/vproject/myblog/handlers.py modified; restarting server
+[I 180804 15:20:21 autoreload:199] /Users/guanjiacheng/python/vproject/myblog/handlers.py modified; restarting server
+[I 180804 15:21:33 autoreload:199] /Users/guanjiacheng/python/vproject/myblog/handlers.py modified; restarting server
+[I 180804 15:22:33 autoreload:199] /Users/guanjiacheng/python/vproject/myblog/handlers.py modified; restarting server
+[I 180804 15:23:18 autoreload:199] /Users/guanjiacheng/python/vproject/myblog/handlers.py modified; restarting server
+[I 180804 15:23:34 autoreload:199] /Users/guanjiacheng/python/vproject/myblog/handlers.py modified; restarting server
+[I 180804 15:26:09 autoreload:199] /Users/guanjiacheng/python/vproject/myblog/handlers.py modified; restarting server
+[I 180804 15:27:12 autoreload:199] /Users/guanjiacheng/python/vproject/myblog/handlers.py modified; restarting server
+[I 180804 15:30:22 web:2162] 200 GET / (127.0.0.1) 7.40ms
+[I 180804 15:30:22 web:2162] 304 GET /static/css/toastr.css (127.0.0.1) 17.06ms
+[I 180804 15:30:25 web:2162] 200 GET /register (127.0.0.1) 4.80ms
+[I 180804 15:30:41 web:2162] 200 GET /?email=386501732%40qq.com&username=dmac21&password=123456&password2=123456 (127.0.0.1) 4.62ms
+[I 180804 15:31:37 web:2162] 304 GET /?email=386501732%40qq.com&username=dmac21&password=123456&password2=123456 (127.0.0.1) 4.64ms
+[I 180804 15:32:27 web:2162] 304 GET /?email=386501732%40qq.com&username=dmac21&password=123456&password2=123456 (127.0.0.1) 3.19ms
+[I 180804 15:32:36 web:2162] 304 GET /?email=386501732%40qq.com&username=dmac21&password=123456&password2=123456 (127.0.0.1) 5.06ms
+[I 180804 15:37:40 autoreload:199] /Users/guanjiacheng/python/vproject/myblog/handlers.py modified; restarting server
+[I 180804 15:37:42 web:2162] 304 GET /?email=386501732%40qq.com&username=dmac21&password=123456&password2=123456 (127.0.0.1) 5.06ms
+[I 180804 15:37:44 web:2162] 200 GET /register (127.0.0.1) 3.66ms
+[E 180804 15:37:55 web:1670] Uncaught exception POST /register (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:5000', method='POST', uri='/register', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/tornado/web.py", line 1590, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/Users/guanjiacheng/python/vproject/myblog/handlers.py", line 74, in post
+        user = User(username,email,password)
+    TypeError: __init__() takes 1 positional argument but 4 were given
+[E 180804 15:37:55 web:2162] 500 POST /register (127.0.0.1) 3.57ms
+[I 180804 15:39:10 autoreload:199] /Users/guanjiacheng/python/vproject/myblog/handlers.py modified; restarting server
+[I 180804 15:44:20 autoreload:199] /Users/guanjiacheng/python/vproject/myblog/handlers.py modified; restarting server
+[I 180804 15:45:27 web:2162] 200 GET /register (127.0.0.1) 3.24ms
+[I 180804 15:45:29 web:2162] 304 GET /register (127.0.0.1) 2.99ms
+2018-08-04 15:45:37,206 INFO sqlalchemy.engine.base.Engine SHOW VARIABLES LIKE 'sql_mode'
+[I 180804 15:45:37 log:109] SHOW VARIABLES LIKE 'sql_mode'
+2018-08-04 15:45:37,207 INFO sqlalchemy.engine.base.Engine {}
+[I 180804 15:45:37 log:109] {}
+2018-08-04 15:45:37,210 INFO sqlalchemy.engine.base.Engine SELECT DATABASE()
+[I 180804 15:45:37 log:109] SELECT DATABASE()
+2018-08-04 15:45:37,210 INFO sqlalchemy.engine.base.Engine {}
+[I 180804 15:45:37 log:109] {}
+2018-08-04 15:45:37,211 INFO sqlalchemy.engine.base.Engine show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+[I 180804 15:45:37 log:109] show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2018-08-04 15:45:37,211 INFO sqlalchemy.engine.base.Engine {}
+[I 180804 15:45:37 log:109] {}
+2018-08-04 15:45:37,217 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+[I 180804 15:45:37 log:109] SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2018-08-04 15:45:37,217 INFO sqlalchemy.engine.base.Engine {}
+[I 180804 15:45:37 log:109] {}
+2018-08-04 15:45:37,218 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+[I 180804 15:45:37 log:109] SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2018-08-04 15:45:37,219 INFO sqlalchemy.engine.base.Engine {}
+[I 180804 15:45:37 log:109] {}
+2018-08-04 15:45:37,219 INFO sqlalchemy.engine.base.Engine SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+[I 180804 15:45:37 log:109] SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2018-08-04 15:45:37,219 INFO sqlalchemy.engine.base.Engine {}
+[I 180804 15:45:37 log:109] {}
+2018-08-04 15:45:37,221 INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+[I 180804 15:45:37 log:109] BEGIN (implicit)
+2018-08-04 15:45:37,222 INFO sqlalchemy.engine.base.Engine INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)
+[I 180804 15:45:37 log:109] INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)
+2018-08-04 15:45:37,222 INFO sqlalchemy.engine.base.Engine {'username': 'dmac21', 'email': '386501732@qq.com', 'password_hash': '1111'}
+[I 180804 15:45:37 log:109] {'username': 'dmac21', 'email': '386501732@qq.com', 'password_hash': '1111'}
+2018-08-04 15:45:37,225 INFO sqlalchemy.engine.base.Engine ROLLBACK
+[I 180804 15:45:37 log:109] ROLLBACK
+[E 180804 15:45:37 web:1670] Uncaught exception POST /register (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:5000', method='POST', uri='/register', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+        context)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+        cursor.execute(statement, parameters)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+        result = self._query(query)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+        conn.query(q)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 516, in query
+        self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 727, in _read_query_result
+        result.read()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 1066, in read
+        first_packet = self.connection._read_packet()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 683, in _read_packet
+        packet.check_error()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+        err.raise_mysql_exception(self._data)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+        raise errorclass(errno, errval)
+    pymysql.err.ProgrammingError: (1146, "Table 'tornado_blog.users' doesn't exist")
+    
+    The above exception was the direct cause of the following exception:
+    
+    Traceback (most recent call last):
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/tornado/web.py", line 1590, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/Users/guanjiacheng/python/vproject/myblog/handlers.py", line 76, in post
+        s.commit()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+        self.transaction.commit()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 467, in commit
+        self._prepare_impl()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 447, in _prepare_impl
+        self.session.flush()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2254, in flush
+        self._flush(objects)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2380, in _flush
+        transaction.rollback(_capture_exception=True)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+        compat.reraise(exc_type, exc_value, exc_tb)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 249, in reraise
+        raise value
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2344, in _flush
+        flush_context.execute()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 391, in execute
+        rec.execute(self)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 556, in execute
+        uow
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+        mapper, table, insert)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 866, in _emit_insert_statements
+        execute(statement, params)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+        return meth(self, multiparams, params)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+        return connection._execute_clauseelement(self, multiparams, params)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+        compiled_sql, distilled_params
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+        context)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+        exc_info
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
+        reraise(type(exception), exception, tb=exc_tb, cause=cause)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 248, in reraise
+        raise value.with_traceback(tb)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+        context)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+        cursor.execute(statement, parameters)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+        result = self._query(query)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+        conn.query(q)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 516, in query
+        self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 727, in _read_query_result
+        result.read()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 1066, in read
+        first_packet = self.connection._read_packet()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 683, in _read_packet
+        packet.check_error()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+        err.raise_mysql_exception(self._data)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+        raise errorclass(errno, errval)
+    sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1146, "Table 'tornado_blog.users' doesn't exist") [SQL: 'INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)'] [parameters: {'username': 'dmac21', 'email': '386501732@qq.com', 'password_hash': '1111'}] (Background on this error at: http://sqlalche.me/e/f405)
+[E 180804 15:45:37 web:2162] 500 POST /register (127.0.0.1) 49.80ms
+[I 180804 15:48:18 autoreload:199] app.py modified; restarting server
+2018-08-04 15:48:19,065 INFO sqlalchemy.engine.base.Engine SHOW VARIABLES LIKE 'sql_mode'
+2018-08-04 15:48:19,065 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:48:19,069 INFO sqlalchemy.engine.base.Engine SELECT DATABASE()
+2018-08-04 15:48:19,069 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:48:19,070 INFO sqlalchemy.engine.base.Engine show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2018-08-04 15:48:19,070 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:48:19,074 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2018-08-04 15:48:19,074 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:48:19,075 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2018-08-04 15:48:19,075 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:48:19,076 INFO sqlalchemy.engine.base.Engine SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2018-08-04 15:48:19,076 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:48:19,077 INFO sqlalchemy.engine.base.Engine DESCRIBE `users`
+2018-08-04 15:48:19,077 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:48:19,080 INFO sqlalchemy.engine.base.Engine ROLLBACK
+2018-08-04 15:48:19,080 INFO sqlalchemy.engine.base.Engine DESCRIBE `articles`
+2018-08-04 15:48:19,080 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:48:19,081 INFO sqlalchemy.engine.base.Engine ROLLBACK
+2018-08-04 15:48:19,082 INFO sqlalchemy.engine.base.Engine 
+CREATE TABLE users (
+	id INTEGER NOT NULL AUTO_INCREMENT, 
+	username VARCHAR(64), 
+	email VARCHAR(64), 
+	password_hash VARCHAR(128), 
+	PRIMARY KEY (id)
+)
+
+
+2018-08-04 15:48:19,083 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:48:19,113 INFO sqlalchemy.engine.base.Engine COMMIT
+2018-08-04 15:48:19,114 INFO sqlalchemy.engine.base.Engine CREATE UNIQUE INDEX ix_users_username ON users (username)
+2018-08-04 15:48:19,114 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:48:19,131 INFO sqlalchemy.engine.base.Engine COMMIT
+2018-08-04 15:48:19,131 INFO sqlalchemy.engine.base.Engine CREATE UNIQUE INDEX ix_users_email ON users (email)
+2018-08-04 15:48:19,132 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:48:19,141 INFO sqlalchemy.engine.base.Engine COMMIT
+2018-08-04 15:48:19,142 INFO sqlalchemy.engine.base.Engine 
+CREATE TABLE articles (
+	id INTEGER NOT NULL AUTO_INCREMENT, 
+	title VARCHAR(128), 
+	body TEXT, 
+	posttime DATETIME, 
+	PRIMARY KEY (id)
+)
+
+
+2018-08-04 15:48:19,142 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:48:19,150 INFO sqlalchemy.engine.base.Engine COMMIT
+2018-08-04 15:48:19,150 INFO sqlalchemy.engine.base.Engine CREATE INDEX ix_articles_posttime ON articles (posttime)
+2018-08-04 15:48:19,150 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:48:19,160 INFO sqlalchemy.engine.base.Engine COMMIT
+2018-08-04 15:48:29,349 INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+[I 180804 15:48:29 log:109] BEGIN (implicit)
+2018-08-04 15:48:29,352 INFO sqlalchemy.engine.base.Engine INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)
+[I 180804 15:48:29 log:109] INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)
+2018-08-04 15:48:29,352 INFO sqlalchemy.engine.base.Engine {'username': 'dmac21', 'email': '386501732@qq.com', 'password_hash': '11111'}
+[I 180804 15:48:29 log:109] {'username': 'dmac21', 'email': '386501732@qq.com', 'password_hash': '11111'}
+2018-08-04 15:48:29,356 INFO sqlalchemy.engine.base.Engine COMMIT
+[I 180804 15:48:29 log:109] COMMIT
+[I 180804 15:48:29 web:2162] 302 POST /register (127.0.0.1) 24.64ms
+[I 180804 15:48:29 web:2162] 200 GET /login (127.0.0.1) 4.71ms
+2018-08-04 15:49:13,562 INFO sqlalchemy.engine.base.Engine SHOW VARIABLES LIKE 'sql_mode'
+2018-08-04 15:49:13,563 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:49:13,566 INFO sqlalchemy.engine.base.Engine SELECT DATABASE()
+2018-08-04 15:49:13,566 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:49:13,567 INFO sqlalchemy.engine.base.Engine show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2018-08-04 15:49:13,567 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:49:13,570 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2018-08-04 15:49:13,570 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:49:13,571 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2018-08-04 15:49:13,571 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:49:13,572 INFO sqlalchemy.engine.base.Engine SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2018-08-04 15:49:13,572 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:49:13,574 INFO sqlalchemy.engine.base.Engine DESCRIBE `users`
+2018-08-04 15:49:13,574 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:49:13,576 INFO sqlalchemy.engine.base.Engine DESCRIBE `articles`
+2018-08-04 15:49:13,576 INFO sqlalchemy.engine.base.Engine {}
+Traceback (most recent call last):
+  File "app.py", line 45, in <module>
+    http_server.listen(options.port)
+  File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/tornado/tcpserver.py", line 143, in listen
+    sockets = bind_sockets(port, address=address)
+  File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/tornado/netutil.py", line 168, in bind_sockets
+    sock.bind(sockaddr)
+OSError: [Errno 48] Address already in use
+2018-08-04 15:49:33,599 INFO sqlalchemy.engine.base.Engine SHOW VARIABLES LIKE 'sql_mode'
+2018-08-04 15:49:33,599 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:49:33,602 INFO sqlalchemy.engine.base.Engine SELECT DATABASE()
+2018-08-04 15:49:33,602 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:49:33,603 INFO sqlalchemy.engine.base.Engine show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2018-08-04 15:49:33,603 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:49:33,606 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2018-08-04 15:49:33,606 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:49:33,607 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2018-08-04 15:49:33,607 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:49:33,608 INFO sqlalchemy.engine.base.Engine SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2018-08-04 15:49:33,608 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:49:33,609 INFO sqlalchemy.engine.base.Engine DESCRIBE `users`
+2018-08-04 15:49:33,609 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:49:33,611 INFO sqlalchemy.engine.base.Engine DESCRIBE `articles`
+2018-08-04 15:49:33,611 INFO sqlalchemy.engine.base.Engine {}
+[I 180804 15:51:23 autoreload:199] /Users/guanjiacheng/python/vproject/myblog/handlers.py modified; restarting server
+2018-08-04 15:51:24,247 INFO sqlalchemy.engine.base.Engine SHOW VARIABLES LIKE 'sql_mode'
+2018-08-04 15:51:24,247 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:51:24,250 INFO sqlalchemy.engine.base.Engine SELECT DATABASE()
+2018-08-04 15:51:24,251 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:51:24,252 INFO sqlalchemy.engine.base.Engine show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2018-08-04 15:51:24,252 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:51:24,256 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2018-08-04 15:51:24,256 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:51:24,257 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2018-08-04 15:51:24,257 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:51:24,258 INFO sqlalchemy.engine.base.Engine SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2018-08-04 15:51:24,258 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:51:24,260 INFO sqlalchemy.engine.base.Engine DESCRIBE `users`
+2018-08-04 15:51:24,260 INFO sqlalchemy.engine.base.Engine {}
+2018-08-04 15:51:24,262 INFO sqlalchemy.engine.base.Engine DESCRIBE `articles`
+2018-08-04 15:51:24,262 INFO sqlalchemy.engine.base.Engine {}
+[I 180804 15:51:27 web:2162] 304 GET /login (127.0.0.1) 4.52ms
+[I 180804 15:51:28 web:2162] 200 GET /register (127.0.0.1) 3.67ms
+2018-08-04 15:51:51,131 INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+[I 180804 15:51:51 log:109] BEGIN (implicit)
+2018-08-04 15:51:51,132 INFO sqlalchemy.engine.base.Engine INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)
+[I 180804 15:51:51 log:109] INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)
+2018-08-04 15:51:51,132 INFO sqlalchemy.engine.base.Engine {'username': 'guanjiacheng', 'email': '386501732@qq.com', 'password_hash': 'pbkdf2:sha256:50000$xlqpXsje$025e71ba3d628ca2b531ab7d405d063a545d20b812e17ed7045b0dba0bf274ab'}
+[I 180804 15:51:51 log:109] {'username': 'guanjiacheng', 'email': '386501732@qq.com', 'password_hash': 'pbkdf2:sha256:50000$xlqpXsje$025e71ba3d628ca2b531ab7d405d063a545d20b812e17ed7045b0dba0bf274ab'}
+2018-08-04 15:51:51,134 INFO sqlalchemy.engine.base.Engine COMMIT
+[I 180804 15:51:51 log:109] COMMIT
+[I 180804 15:51:51 web:2162] 302 POST /register (127.0.0.1) 97.93ms
+[I 180804 15:51:51 web:2162] 304 GET /login (127.0.0.1) 3.44ms
+[I 180804 15:53:36 autoreload:199] /Users/guanjiacheng/python/vproject/myblog/handlers.py modified; restarting server
+Traceback (most recent call last):
+  File "app.py", line 10, in <module>
+    from handlers import *
+  File "/Users/guanjiacheng/python/vproject/myblog/handlers.py", line 5, in <module>
+    from models import User,s
+  File "/Users/guanjiacheng/python/vproject/myblog/models.py", line 37
+    def 
+       ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "app.py", line 32, in <module>
+    (r'/profile/(\w+)',ProfileHandler),
+NameError: name 'ProfileHandler' is not defined

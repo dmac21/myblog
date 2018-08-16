@@ -8,6 +8,7 @@ import tornado.web
 from tornado.options import define,options
 import os.path as op
 from handlers import *
+from models import Base
 
 define("port",default=5000,type=int,help="app run in the define port")
 
@@ -28,15 +29,15 @@ app=tornado.web.Application(
         (r'/',MainHandler),
         (r'/login',LoginHandler),
         (r'/logout',LogoutHandler),
-        (r'/profile/(\w+)',ProfileHandler),
-        (r'/article/(\w+)',ArticleHandler),
         (r'/register',RegisterHandler),
+
     ],
     **setting,
 )
 
 
 if __name__ == '__main__':
+    Base.metadata.create_all()
     tornado.options.parse_command_line()
     http_server=tornado.httpserver.HTTPServer(app)
     http_server.listen(options.port)
