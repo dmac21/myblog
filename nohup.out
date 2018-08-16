@@ -310,3 +310,549 @@ Traceback (most recent call last):
   File "app.py", line 32, in <module>
     (r'/profile/(\w+)',ProfileHandler),
 NameError: name 'ProfileHandler' is not defined
+2018-08-16 23:19:50,114 INFO sqlalchemy.engine.base.Engine SHOW VARIABLES LIKE 'sql_mode'
+2018-08-16 23:19:50,114 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:19:50,117 INFO sqlalchemy.engine.base.Engine SELECT DATABASE()
+2018-08-16 23:19:50,117 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:19:50,118 INFO sqlalchemy.engine.base.Engine show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2018-08-16 23:19:50,118 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:19:50,121 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2018-08-16 23:19:50,121 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:19:50,122 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2018-08-16 23:19:50,122 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:19:50,123 INFO sqlalchemy.engine.base.Engine SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2018-08-16 23:19:50,123 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:19:50,125 INFO sqlalchemy.engine.base.Engine DESCRIBE `users`
+2018-08-16 23:19:50,125 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:19:50,128 INFO sqlalchemy.engine.base.Engine DESCRIBE `articles`
+2018-08-16 23:19:50,129 INFO sqlalchemy.engine.base.Engine {}
+[I 180816 23:19:55 web:2162] 304 GET /login (127.0.0.1) 5.66ms
+2018-08-16 23:20:01,938 INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+[I 180816 23:20:01 log:109] BEGIN (implicit)
+2018-08-16 23:20:01,939 INFO sqlalchemy.engine.base.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+FROM users 
+WHERE users.username = %(username_1)s 
+ LIMIT %(param_1)s
+[I 180816 23:20:01 log:109] SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+    FROM users 
+    WHERE users.username = %(username_1)s 
+     LIMIT %(param_1)s
+2018-08-16 23:20:01,939 INFO sqlalchemy.engine.base.Engine {'username_1': 'dmac21', 'param_1': 1}
+[I 180816 23:20:01 log:109] {'username_1': 'dmac21', 'param_1': 1}
+2018-08-16 23:20:01,942 INFO sqlalchemy.engine.base.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+FROM users 
+WHERE false = 1 
+ LIMIT %(param_1)s
+[I 180816 23:20:01 log:109] SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+    FROM users 
+    WHERE false = 1 
+     LIMIT %(param_1)s
+2018-08-16 23:20:01,942 INFO sqlalchemy.engine.base.Engine {'param_1': 1}
+[I 180816 23:20:01 log:109] {'param_1': 1}
+[I 180816 23:20:01 web:2162] 200 POST /login (127.0.0.1) 9.28ms
+[I 180816 23:20:03 web:2162] 200 GET /login (127.0.0.1) 5.22ms
+2018-08-16 23:20:06,912 INFO sqlalchemy.engine.base.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+FROM users 
+WHERE users.username = %(username_1)s 
+ LIMIT %(param_1)s
+[I 180816 23:20:06 log:109] SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+    FROM users 
+    WHERE users.username = %(username_1)s 
+     LIMIT %(param_1)s
+2018-08-16 23:20:06,912 INFO sqlalchemy.engine.base.Engine {'username_1': 'dmac21', 'param_1': 1}
+[I 180816 23:20:06 log:109] {'username_1': 'dmac21', 'param_1': 1}
+2018-08-16 23:20:06,915 INFO sqlalchemy.engine.base.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+FROM users 
+WHERE false = 1 
+ LIMIT %(param_1)s
+[I 180816 23:20:06 log:109] SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+    FROM users 
+    WHERE false = 1 
+     LIMIT %(param_1)s
+2018-08-16 23:20:06,915 INFO sqlalchemy.engine.base.Engine {'param_1': 1}
+[I 180816 23:20:06 log:109] {'param_1': 1}
+[I 180816 23:20:06 web:2162] 200 POST /login (127.0.0.1) 6.07ms
+[I 180816 23:20:08 web:2162] 200 GET /login (127.0.0.1) 3.37ms
+2018-08-16 23:20:12,770 INFO sqlalchemy.engine.base.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+FROM users 
+WHERE users.username = %(username_1)s 
+ LIMIT %(param_1)s
+[I 180816 23:20:12 log:109] SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+    FROM users 
+    WHERE users.username = %(username_1)s 
+     LIMIT %(param_1)s
+2018-08-16 23:20:12,770 INFO sqlalchemy.engine.base.Engine {'username_1': 'dmac21', 'param_1': 1}
+[I 180816 23:20:12 log:109] {'username_1': 'dmac21', 'param_1': 1}
+2018-08-16 23:20:12,772 INFO sqlalchemy.engine.base.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+FROM users 
+WHERE false = 1 
+ LIMIT %(param_1)s
+[I 180816 23:20:12 log:109] SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+    FROM users 
+    WHERE false = 1 
+     LIMIT %(param_1)s
+2018-08-16 23:20:12,772 INFO sqlalchemy.engine.base.Engine {'param_1': 1}
+[I 180816 23:20:12 log:109] {'param_1': 1}
+[I 180816 23:20:12 web:2162] 200 POST /login (127.0.0.1) 7.13ms
+[I 180816 23:20:14 web:2162] 200 GET /login (127.0.0.1) 4.21ms
+[I 180816 23:20:38 web:2162] 304 GET /register (127.0.0.1) 4.52ms
+2018-08-16 23:21:03,026 INFO sqlalchemy.engine.base.Engine INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)
+[I 180816 23:21:03 log:109] INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)
+2018-08-16 23:21:03,027 INFO sqlalchemy.engine.base.Engine {'username': 'ak47', 'email': '386501732@qq.com', 'password_hash': 'pbkdf2:sha256:50000$Y3bpdPgL$dfdf01f10d36c1ed9c47bed14715c9b3a65eeff59018802940dc5e7e03636108'}
+[I 180816 23:21:03 log:109] {'username': 'ak47', 'email': '386501732@qq.com', 'password_hash': 'pbkdf2:sha256:50000$Y3bpdPgL$dfdf01f10d36c1ed9c47bed14715c9b3a65eeff59018802940dc5e7e03636108'}
+2018-08-16 23:21:03,031 INFO sqlalchemy.engine.base.Engine ROLLBACK
+[I 180816 23:21:03 log:109] ROLLBACK
+[E 180816 23:21:03 web:1670] Uncaught exception POST /register (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:5000', method='POST', uri='/register', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+        context)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+        cursor.execute(statement, parameters)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+        result = self._query(query)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+        conn.query(q)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 516, in query
+        self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 727, in _read_query_result
+        result.read()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 1066, in read
+        first_packet = self.connection._read_packet()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 683, in _read_packet
+        packet.check_error()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+        err.raise_mysql_exception(self._data)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+        raise errorclass(errno, errval)
+    pymysql.err.IntegrityError: (1062, "Duplicate entry '386501732@qq.com' for key 'ix_users_email'")
+    
+    The above exception was the direct cause of the following exception:
+    
+    Traceback (most recent call last):
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/tornado/web.py", line 1590, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/Users/guanjiacheng/python/vproject/myblog/handlers.py", line 60, in post
+        s.commit()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+        self.transaction.commit()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 467, in commit
+        self._prepare_impl()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 447, in _prepare_impl
+        self.session.flush()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2254, in flush
+        self._flush(objects)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2380, in _flush
+        transaction.rollback(_capture_exception=True)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+        compat.reraise(exc_type, exc_value, exc_tb)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 249, in reraise
+        raise value
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2344, in _flush
+        flush_context.execute()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 391, in execute
+        rec.execute(self)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 556, in execute
+        uow
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+        mapper, table, insert)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 866, in _emit_insert_statements
+        execute(statement, params)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+        return meth(self, multiparams, params)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+        return connection._execute_clauseelement(self, multiparams, params)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+        compiled_sql, distilled_params
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+        context)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+        exc_info
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
+        reraise(type(exception), exception, tb=exc_tb, cause=cause)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 248, in reraise
+        raise value.with_traceback(tb)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+        context)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+        cursor.execute(statement, parameters)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+        result = self._query(query)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+        conn.query(q)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 516, in query
+        self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 727, in _read_query_result
+        result.read()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 1066, in read
+        first_packet = self.connection._read_packet()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 683, in _read_packet
+        packet.check_error()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+        err.raise_mysql_exception(self._data)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+        raise errorclass(errno, errval)
+    sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry '386501732@qq.com' for key 'ix_users_email'") [SQL: 'INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)'] [parameters: {'username': 'ak47', 'email': '386501732@qq.com', 'password_hash': 'pbkdf2:sha256:50000$Y3bpdPgL$dfdf01f10d36c1ed9c47bed14715c9b3a65eeff59018802940dc5e7e03636108'}] (Background on this error at: http://sqlalche.me/e/gkpj)
+[E 180816 23:21:03 web:2162] 500 POST /register (127.0.0.1) 168.13ms
+[E 180816 23:21:39 web:1670] Uncaught exception POST /register (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:5000', method='POST', uri='/register', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/tornado/web.py", line 1590, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/Users/guanjiacheng/python/vproject/myblog/handlers.py", line 60, in post
+        s.commit()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+        self.transaction.commit()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 465, in commit
+        self._assert_active(prepared_ok=True)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 276, in _assert_active
+        % self._rollback_exception
+    sqlalchemy.exc.InvalidRequestError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (pymysql.err.IntegrityError) (1062, "Duplicate entry '386501732@qq.com' for key 'ix_users_email'") [SQL: 'INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)'] [parameters: {'username': 'ak47', 'email': '386501732@qq.com', 'password_hash': 'pbkdf2:sha256:50000$Y3bpdPgL$dfdf01f10d36c1ed9c47bed14715c9b3a65eeff59018802940dc5e7e03636108'}] (Background on this error at: http://sqlalche.me/e/gkpj)
+[E 180816 23:21:39 web:2162] 500 POST /register (127.0.0.1) 83.15ms
+[I 180816 23:28:14 web:2162] 304 GET /register (127.0.0.1) 4.57ms
+[I 180816 23:28:15 web:2162] 304 GET /login (127.0.0.1) 4.05ms
+[I 180816 23:28:16 web:2162] 304 GET /register (127.0.0.1) 3.47ms
+[I 180816 23:28:16 web:2162] 304 GET /login (127.0.0.1) 3.52ms
+[I 180816 23:28:17 web:2162] 304 GET / (127.0.0.1) 5.17ms
+[I 180816 23:28:20 web:2162] 304 GET /login (127.0.0.1) 4.87ms
+[I 180816 23:28:20 web:2162] 304 GET /register (127.0.0.1) 3.42ms
+[I 180816 23:28:22 web:2162] 304 GET / (127.0.0.1) 4.48ms
+[I 180816 23:28:24 web:2162] 304 GET /login (127.0.0.1) 3.59ms
+[I 180816 23:28:31 web:2162] 304 GET /register (127.0.0.1) 3.67ms
+[E 180816 23:28:43 web:1670] Uncaught exception POST /register (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:5000', method='POST', uri='/register', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/tornado/web.py", line 1590, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/Users/guanjiacheng/python/vproject/myblog/handlers.py", line 60, in post
+        s.commit()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+        self.transaction.commit()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 465, in commit
+        self._assert_active(prepared_ok=True)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 276, in _assert_active
+        % self._rollback_exception
+    sqlalchemy.exc.InvalidRequestError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (pymysql.err.IntegrityError) (1062, "Duplicate entry '386501732@qq.com' for key 'ix_users_email'") [SQL: 'INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)'] [parameters: {'username': 'ak47', 'email': '386501732@qq.com', 'password_hash': 'pbkdf2:sha256:50000$Y3bpdPgL$dfdf01f10d36c1ed9c47bed14715c9b3a65eeff59018802940dc5e7e03636108'}] (Background on this error at: http://sqlalche.me/e/gkpj)
+[E 180816 23:28:43 web:2162] 500 POST /register (127.0.0.1) 79.68ms
+[I 180816 23:31:41 autoreload:199] /Users/guanjiacheng/python/vproject/myblog/handlers.py modified; restarting server
+2018-08-16 23:31:41,662 INFO sqlalchemy.engine.base.Engine SHOW VARIABLES LIKE 'sql_mode'
+2018-08-16 23:31:41,662 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:31:41,665 INFO sqlalchemy.engine.base.Engine SELECT DATABASE()
+2018-08-16 23:31:41,665 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:31:41,666 INFO sqlalchemy.engine.base.Engine show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2018-08-16 23:31:41,666 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:31:41,670 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2018-08-16 23:31:41,670 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:31:41,671 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2018-08-16 23:31:41,671 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:31:41,672 INFO sqlalchemy.engine.base.Engine SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2018-08-16 23:31:41,673 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:31:41,675 INFO sqlalchemy.engine.base.Engine DESCRIBE `users`
+2018-08-16 23:31:41,675 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:31:41,677 INFO sqlalchemy.engine.base.Engine DESCRIBE `articles`
+2018-08-16 23:31:41,677 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:32:21,277 INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+[I 180816 23:32:21 log:109] BEGIN (implicit)
+2018-08-16 23:32:21,278 INFO sqlalchemy.engine.base.Engine INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)
+[I 180816 23:32:21 log:109] INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)
+2018-08-16 23:32:21,278 INFO sqlalchemy.engine.base.Engine {'username': 'dmac21', 'email': '386501732@qq.com', 'password_hash': 'pbkdf2:sha256:50000$THrTLFcw$cb6bdb7ed3d510be9c690cfe4024751086448bfe970d461ab5661f88ff47a047'}
+[I 180816 23:32:21 log:109] {'username': 'dmac21', 'email': '386501732@qq.com', 'password_hash': 'pbkdf2:sha256:50000$THrTLFcw$cb6bdb7ed3d510be9c690cfe4024751086448bfe970d461ab5661f88ff47a047'}
+2018-08-16 23:32:21,280 INFO sqlalchemy.engine.base.Engine COMMIT
+[I 180816 23:32:21 log:109] COMMIT
+2018-08-16 23:32:21,289 INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+[I 180816 23:32:21 log:109] BEGIN (implicit)
+2018-08-16 23:32:21,290 INFO sqlalchemy.engine.base.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+FROM users 
+WHERE users.id = %(param_1)s
+[I 180816 23:32:21 log:109] SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+    FROM users 
+    WHERE users.id = %(param_1)s
+2018-08-16 23:32:21,290 INFO sqlalchemy.engine.base.Engine {'param_1': 5}
+[I 180816 23:32:21 log:109] {'param_1': 5}
+[I 180816 23:32:27 web:2162] 302 POST /register (127.0.0.1) 5882.02ms
+[I 180816 23:32:27 web:2162] 304 GET /login (127.0.0.1) 4.48ms
+[I 180816 23:33:15 autoreload:199] /Users/guanjiacheng/python/vproject/myblog/handlers.py modified; restarting server
+2018-08-16 23:33:16,141 INFO sqlalchemy.engine.base.Engine SHOW VARIABLES LIKE 'sql_mode'
+2018-08-16 23:33:16,141 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:33:16,144 INFO sqlalchemy.engine.base.Engine SELECT DATABASE()
+2018-08-16 23:33:16,144 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:33:16,145 INFO sqlalchemy.engine.base.Engine show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2018-08-16 23:33:16,146 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:33:16,149 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2018-08-16 23:33:16,150 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:33:16,150 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2018-08-16 23:33:16,150 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:33:16,151 INFO sqlalchemy.engine.base.Engine SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2018-08-16 23:33:16,151 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:33:16,153 INFO sqlalchemy.engine.base.Engine DESCRIBE `users`
+2018-08-16 23:33:16,153 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:33:16,160 INFO sqlalchemy.engine.base.Engine DESCRIBE `articles`
+2018-08-16 23:33:16,160 INFO sqlalchemy.engine.base.Engine {}
+[I 180816 23:33:46 web:2162] 200 GET /static/vendor/bootstrap/js/bootstrap.bundle.min.js.map (127.0.0.1) 25.82ms
+[I 180816 23:33:46 web:2162] 200 GET /static/vendor/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 11.66ms
+2018-08-16 23:34:00,153 INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+[I 180816 23:34:00 log:109] BEGIN (implicit)
+2018-08-16 23:34:00,154 INFO sqlalchemy.engine.base.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+FROM users 
+WHERE users.username = %(username_1)s 
+ LIMIT %(param_1)s
+[I 180816 23:34:00 log:109] SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+    FROM users 
+    WHERE users.username = %(username_1)s 
+     LIMIT %(param_1)s
+2018-08-16 23:34:00,155 INFO sqlalchemy.engine.base.Engine {'username_1': 'dmac21', 'param_1': 1}
+[I 180816 23:34:00 log:109] {'username_1': 'dmac21', 'param_1': 1}
+2018-08-16 23:34:00,158 INFO sqlalchemy.engine.base.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+FROM users 
+WHERE false = 1 
+ LIMIT %(param_1)s
+[I 180816 23:34:00 log:109] SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+    FROM users 
+    WHERE false = 1 
+     LIMIT %(param_1)s
+2018-08-16 23:34:00,159 INFO sqlalchemy.engine.base.Engine {'param_1': 1}
+[I 180816 23:34:00 log:109] {'param_1': 1}
+[I 180816 23:34:00 web:2162] 200 POST /login (127.0.0.1) 13.23ms
+[I 180816 23:34:15 web:2162] 200 GET /login (127.0.0.1) 6.82ms
+[I 180816 23:34:16 web:2162] 200 GET /static/css/toastr.css (127.0.0.1) 28.66ms
+[I 180816 23:34:16 web:2162] 200 GET /static/css/blog-home.css (127.0.0.1) 26.73ms
+[I 180816 23:34:16 web:2162] 200 GET /static/vendor/jquery/jquery.min.js (127.0.0.1) 26.95ms
+[I 180816 23:34:16 web:2162] 200 GET /static/vendor/bootstrap/js/bootstrap.bundle.min.js (127.0.0.1) 14.59ms
+[I 180816 23:34:16 web:2162] 200 GET /static/vendor/bootstrap/css/bootstrap.min.css (127.0.0.1) 36.47ms
+[I 180816 23:34:16 web:2162] 200 GET /static/vendor/bootstrap/js/bootstrap.bundle.min.js.map (127.0.0.1) 17.90ms
+[I 180816 23:34:16 web:2162] 200 GET /static/vendor/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 25.62ms
+2018-08-16 23:34:20,959 INFO sqlalchemy.engine.base.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+FROM users 
+WHERE users.username = %(username_1)s 
+ LIMIT %(param_1)s
+[I 180816 23:34:20 log:109] SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+    FROM users 
+    WHERE users.username = %(username_1)s 
+     LIMIT %(param_1)s
+2018-08-16 23:34:20,959 INFO sqlalchemy.engine.base.Engine {'username_1': 'dmac21', 'param_1': 1}
+[I 180816 23:34:20 log:109] {'username_1': 'dmac21', 'param_1': 1}
+2018-08-16 23:34:20,963 INFO sqlalchemy.engine.base.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+FROM users 
+WHERE false = 1 
+ LIMIT %(param_1)s
+[I 180816 23:34:20 log:109] SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+    FROM users 
+    WHERE false = 1 
+     LIMIT %(param_1)s
+2018-08-16 23:34:20,963 INFO sqlalchemy.engine.base.Engine {'param_1': 1}
+[I 180816 23:34:20 log:109] {'param_1': 1}
+[I 180816 23:34:20 web:2162] 200 POST /login (127.0.0.1) 9.09ms
+[I 180816 23:34:27 web:2162] 200 GET /login (127.0.0.1) 4.80ms
+[I 180816 23:34:27 web:2162] 200 GET /static/css/toastr.css (127.0.0.1) 14.64ms
+[I 180816 23:34:27 web:2162] 200 GET /static/css/blog-home.css (127.0.0.1) 12.73ms
+[I 180816 23:34:27 web:2162] 200 GET /static/vendor/jquery/jquery.min.js (127.0.0.1) 12.07ms
+[I 180816 23:34:27 web:2162] 200 GET /static/vendor/bootstrap/js/bootstrap.bundle.min.js (127.0.0.1) 6.59ms
+[I 180816 23:34:27 web:2162] 200 GET /static/vendor/bootstrap/css/bootstrap.min.css (127.0.0.1) 21.47ms
+[I 180816 23:34:27 web:2162] 200 GET /static/vendor/bootstrap/js/bootstrap.bundle.min.js.map (127.0.0.1) 4.50ms
+[I 180816 23:34:27 web:2162] 200 GET /static/vendor/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 7.03ms
+[I 180816 23:34:38 web:2162] 200 GET /register (127.0.0.1) 4.78ms
+[I 180816 23:34:38 web:2162] 200 GET /static/css/toastr.css (127.0.0.1) 33.34ms
+[I 180816 23:34:38 web:2162] 200 GET /static/css/blog-home.css (127.0.0.1) 31.08ms
+[I 180816 23:34:38 web:2162] 200 GET /static/vendor/bootstrap/css/bootstrap.min.css (127.0.0.1) 44.76ms
+[I 180816 23:34:38 web:2162] 200 GET /static/vendor/jquery/jquery.min.js (127.0.0.1) 26.88ms
+[I 180816 23:34:38 web:2162] 200 GET /static/vendor/bootstrap/js/bootstrap.bundle.min.js (127.0.0.1) 14.21ms
+[I 180816 23:34:38 web:2162] 200 GET /static/vendor/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 12.94ms
+[I 180816 23:34:39 web:2162] 200 GET /static/vendor/bootstrap/js/bootstrap.bundle.min.js.map (127.0.0.1) 4.28ms
+2018-08-16 23:35:06,083 INFO sqlalchemy.engine.base.Engine ROLLBACK
+[I 180816 23:35:06 log:109] ROLLBACK
+2018-08-16 23:35:06,084 INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+[I 180816 23:35:06 log:109] BEGIN (implicit)
+2018-08-16 23:35:06,085 INFO sqlalchemy.engine.base.Engine INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)
+[I 180816 23:35:06 log:109] INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)
+2018-08-16 23:35:06,085 INFO sqlalchemy.engine.base.Engine {'username': 'ak47', 'email': '386501732@qq.com', 'password_hash': 'pbkdf2:sha256:50000$dzmiEtx2$653212ef13bc48738595f472eb5407273253b91d75d3821a5440902a534e1494'}
+[I 180816 23:35:06 log:109] {'username': 'ak47', 'email': '386501732@qq.com', 'password_hash': 'pbkdf2:sha256:50000$dzmiEtx2$653212ef13bc48738595f472eb5407273253b91d75d3821a5440902a534e1494'}
+2018-08-16 23:35:06,086 INFO sqlalchemy.engine.base.Engine ROLLBACK
+[I 180816 23:35:06 log:109] ROLLBACK
+[E 180816 23:35:06 web:1670] Uncaught exception POST /register (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='127.0.0.1:5000', method='POST', uri='/register', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+        context)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+        cursor.execute(statement, parameters)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+        result = self._query(query)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+        conn.query(q)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 516, in query
+        self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 727, in _read_query_result
+        result.read()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 1066, in read
+        first_packet = self.connection._read_packet()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 683, in _read_packet
+        packet.check_error()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+        err.raise_mysql_exception(self._data)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+        raise errorclass(errno, errval)
+    pymysql.err.IntegrityError: (1062, "Duplicate entry '386501732@qq.com' for key 'ix_users_email'")
+    
+    The above exception was the direct cause of the following exception:
+    
+    Traceback (most recent call last):
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/tornado/web.py", line 1590, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/Users/guanjiacheng/python/vproject/myblog/handlers.py", line 61, in post
+        s.commit()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+        self.transaction.commit()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 467, in commit
+        self._prepare_impl()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 447, in _prepare_impl
+        self.session.flush()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2254, in flush
+        self._flush(objects)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2380, in _flush
+        transaction.rollback(_capture_exception=True)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+        compat.reraise(exc_type, exc_value, exc_tb)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 249, in reraise
+        raise value
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2344, in _flush
+        flush_context.execute()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 391, in execute
+        rec.execute(self)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 556, in execute
+        uow
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+        mapper, table, insert)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 866, in _emit_insert_statements
+        execute(statement, params)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+        return meth(self, multiparams, params)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+        return connection._execute_clauseelement(self, multiparams, params)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+        compiled_sql, distilled_params
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+        context)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+        exc_info
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
+        reraise(type(exception), exception, tb=exc_tb, cause=cause)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 248, in reraise
+        raise value.with_traceback(tb)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+        context)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+        cursor.execute(statement, parameters)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/cursors.py", line 170, in execute
+        result = self._query(query)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/cursors.py", line 328, in _query
+        conn.query(q)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 516, in query
+        self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 727, in _read_query_result
+        result.read()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 1066, in read
+        first_packet = self.connection._read_packet()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/connections.py", line 683, in _read_packet
+        packet.check_error()
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/protocol.py", line 220, in check_error
+        err.raise_mysql_exception(self._data)
+      File "/Users/guanjiacheng/python/virtualenvs/myblog/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+        raise errorclass(errno, errval)
+    sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry '386501732@qq.com' for key 'ix_users_email'") [SQL: 'INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)'] [parameters: {'username': 'ak47', 'email': '386501732@qq.com', 'password_hash': 'pbkdf2:sha256:50000$dzmiEtx2$653212ef13bc48738595f472eb5407273253b91d75d3821a5440902a534e1494'}] (Background on this error at: http://sqlalche.me/e/gkpj)
+[E 180816 23:35:06 web:2162] 500 POST /register (127.0.0.1) 145.52ms
+2018-08-16 23:35:25,870 INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+[I 180816 23:35:25 log:109] BEGIN (implicit)
+2018-08-16 23:35:25,871 INFO sqlalchemy.engine.base.Engine INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)
+[I 180816 23:35:25 log:109] INSERT INTO users (username, email, password_hash) VALUES (%(username)s, %(email)s, %(password_hash)s)
+2018-08-16 23:35:25,871 INFO sqlalchemy.engine.base.Engine {'username': 'ak47', 'email': '386501732@qq.com', 'password_hash': 'pbkdf2:sha256:50000$9HiT4qYm$73893c73cc2065c835faae49d6a5bca10c992bd5d83801c07328556483c6a981'}
+[I 180816 23:35:25 log:109] {'username': 'ak47', 'email': '386501732@qq.com', 'password_hash': 'pbkdf2:sha256:50000$9HiT4qYm$73893c73cc2065c835faae49d6a5bca10c992bd5d83801c07328556483c6a981'}
+2018-08-16 23:35:25,872 INFO sqlalchemy.engine.base.Engine COMMIT
+[I 180816 23:35:25 log:109] COMMIT
+2018-08-16 23:35:25,914 INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+[I 180816 23:35:25 log:109] BEGIN (implicit)
+2018-08-16 23:35:25,916 INFO sqlalchemy.engine.base.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+FROM users 
+WHERE users.id = %(param_1)s
+[I 180816 23:35:25 log:109] SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+    FROM users 
+    WHERE users.id = %(param_1)s
+2018-08-16 23:35:25,916 INFO sqlalchemy.engine.base.Engine {'param_1': 7}
+[I 180816 23:35:25 log:109] {'param_1': 7}
+[I 180816 23:35:31 web:2162] 302 POST /register (127.0.0.1) 6153.74ms
+[I 180816 23:35:31 web:2162] 200 GET /login (127.0.0.1) 4.68ms
+[I 180816 23:35:31 web:2162] 200 GET /static/css/toastr.css (127.0.0.1) 16.27ms
+[I 180816 23:35:31 web:2162] 200 GET /static/css/blog-home.css (127.0.0.1) 13.24ms
+[I 180816 23:35:31 web:2162] 200 GET /static/vendor/jquery/jquery.min.js (127.0.0.1) 12.42ms
+[I 180816 23:35:31 web:2162] 200 GET /static/vendor/bootstrap/js/bootstrap.bundle.min.js (127.0.0.1) 10.66ms
+[I 180816 23:35:31 web:2162] 200 GET /static/vendor/bootstrap/css/bootstrap.min.css (127.0.0.1) 22.78ms
+[I 180816 23:35:32 web:2162] 200 GET /static/vendor/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 10.71ms
+[I 180816 23:35:32 web:2162] 200 GET /static/vendor/bootstrap/js/bootstrap.bundle.min.js.map (127.0.0.1) 5.76ms
+发送成功
+An email has been sent to you email-address!
+2018-08-16 23:36:00,520 INFO sqlalchemy.engine.base.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+FROM users 
+WHERE users.username = %(username_1)s 
+ LIMIT %(param_1)s
+[I 180816 23:36:00 log:109] SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+    FROM users 
+    WHERE users.username = %(username_1)s 
+     LIMIT %(param_1)s
+2018-08-16 23:36:00,521 INFO sqlalchemy.engine.base.Engine {'username_1': 'ak47', 'param_1': 1}
+[I 180816 23:36:00 log:109] {'username_1': 'ak47', 'param_1': 1}
+2018-08-16 23:36:00,524 INFO sqlalchemy.engine.base.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+FROM users 
+WHERE false = 1 
+ LIMIT %(param_1)s
+[I 180816 23:36:00 log:109] SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+    FROM users 
+    WHERE false = 1 
+     LIMIT %(param_1)s
+2018-08-16 23:36:00,525 INFO sqlalchemy.engine.base.Engine {'param_1': 1}
+[I 180816 23:36:00 log:109] {'param_1': 1}
+[I 180816 23:36:00 web:2162] 200 POST /login (127.0.0.1) 8.83ms
+[I 180816 23:45:04 autoreload:199] /Users/guanjiacheng/python/vproject/myblog/handlers.py modified; restarting server
+2018-08-16 23:45:04,628 INFO sqlalchemy.engine.base.Engine SHOW VARIABLES LIKE 'sql_mode'
+2018-08-16 23:45:04,628 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:45:04,631 INFO sqlalchemy.engine.base.Engine SELECT DATABASE()
+2018-08-16 23:45:04,631 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:45:04,632 INFO sqlalchemy.engine.base.Engine show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2018-08-16 23:45:04,632 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:45:04,635 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2018-08-16 23:45:04,635 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:45:04,636 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2018-08-16 23:45:04,636 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:45:04,637 INFO sqlalchemy.engine.base.Engine SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2018-08-16 23:45:04,637 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:45:04,638 INFO sqlalchemy.engine.base.Engine DESCRIBE `users`
+2018-08-16 23:45:04,639 INFO sqlalchemy.engine.base.Engine {}
+2018-08-16 23:45:04,641 INFO sqlalchemy.engine.base.Engine DESCRIBE `articles`
+2018-08-16 23:45:04,641 INFO sqlalchemy.engine.base.Engine {}
+[I 180816 23:45:07 web:2162] 200 GET /login (127.0.0.1) 5.82ms
+[I 180816 23:45:07 web:2162] 200 GET /static/css/toastr.css (127.0.0.1) 24.21ms
+[I 180816 23:45:07 web:2162] 200 GET /static/css/blog-home.css (127.0.0.1) 22.50ms
+[I 180816 23:45:07 web:2162] 200 GET /static/vendor/jquery/jquery.min.js (127.0.0.1) 17.54ms
+[I 180816 23:45:07 web:2162] 200 GET /static/vendor/bootstrap/js/bootstrap.bundle.min.js (127.0.0.1) 14.31ms
+[I 180816 23:45:07 web:2162] 200 GET /static/vendor/bootstrap/css/bootstrap.min.css (127.0.0.1) 42.28ms
+[I 180816 23:45:07 web:2162] 200 GET /static/vendor/bootstrap/js/bootstrap.bundle.min.js.map (127.0.0.1) 3.77ms
+[I 180816 23:45:07 web:2162] 200 GET /static/vendor/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 7.00ms
+2018-08-16 23:45:20,087 INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+[I 180816 23:45:20 log:109] BEGIN (implicit)
+2018-08-16 23:45:20,089 INFO sqlalchemy.engine.base.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+FROM users 
+WHERE users.username = %(username_1)s 
+ LIMIT %(param_1)s
+[I 180816 23:45:20 log:109] SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+    FROM users 
+    WHERE users.username = %(username_1)s 
+     LIMIT %(param_1)s
+2018-08-16 23:45:20,090 INFO sqlalchemy.engine.base.Engine {'username_1': 'ak47', 'param_1': 1}
+[I 180816 23:45:20 log:109] {'username_1': 'ak47', 'param_1': 1}
+[I 180816 23:45:20 web:2162] 302 POST /login (127.0.0.1) 104.08ms
+[I 180816 23:45:20 web:2162] 200 GET / (127.0.0.1) 5.13ms
+[I 180816 23:45:20 web:2162] 200 GET /static/css/toastr.css (127.0.0.1) 20.16ms
+[I 180816 23:45:20 web:2162] 200 GET /static/css/blog-home.css (127.0.0.1) 18.46ms
+[I 180816 23:45:20 web:2162] 200 GET /static/vendor/bootstrap/css/bootstrap.min.css (127.0.0.1) 27.96ms
+[I 180816 23:45:20 web:2162] 200 GET /static/vendor/jquery/jquery.min.js (127.0.0.1) 18.75ms
+[I 180816 23:45:20 web:2162] 200 GET /static/vendor/bootstrap/js/bootstrap.bundle.min.js (127.0.0.1) 7.82ms
+[I 180816 23:45:20 web:2162] 200 GET /static/vendor/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 10.96ms
+[I 180816 23:45:20 web:2162] 200 GET /static/vendor/bootstrap/js/bootstrap.bundle.min.js.map (127.0.0.1) 7.37ms

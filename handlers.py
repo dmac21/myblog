@@ -30,8 +30,7 @@ class LoginHandler(BaseHandler):
          username = self.get_argument('username')
          password = self.get_argument('password')
          user=s.query(User).filter(User.username == username).first()
-         pw=s.query(User).filter(User.password == password).first()
-         if user and pw:
+         if user and user.verify_password(password):
              self.set_secure_cookie('username',username)
              self.redirect('/')
          else:
@@ -56,11 +55,12 @@ class RegisterHandler(tornado.web.RequestHandler):
         password = self.get_argument('password')
         user = User(username=username, email=email, password=password)
         token = user.generate_confirmation_token()
+        s.rollback()
         s.add(user)
         s.commit()
         send_email(msg_to=user.email,confirmurl=token)
         print('An email has been sent to you email-address!')
-        return self.redirect('/login')
+        self.redirect('/login')
 
 
 class ErrorHandler(tornado.web.RequestHandler):
