@@ -1,9 +1,10 @@
 {% extends "base.html"%}
 
 {% block page_content%}
-<div class="col-md-3" id="login_form" style="margin:0 auto; margin-top:5%">
+<div class="col-md-3" id="login_form" style="float:none; margin:0 auto; margin-top:5%">
       <form action="/login" method="post" class="form-signin" role="form">
-        <h2 class="form-signin-heading">用户登录</h2>
+        <h3 class="form-signin-heading">用户登录</h3>
+          </br>
         <input type="text" name="username" class="form-control" placeholder="请输入用户名" required autofocus>
       </br>
         <input type="password" name="password" class="form-control" placeholder="请输入密码" required>

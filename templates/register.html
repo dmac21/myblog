@@ -1,9 +1,10 @@
 {% extends "base.html"%}
 
 {% block page_content%}
-<div class="col-md-3" id="login_form" style="margin:0 auto; margin-top:5%">
+<div class="col-md-3" id="login_form" style="float:none; margin:0 auto; margin-top:5%">
       <form action="/register" method="post" class="form-signin" role="form">
-        <h2 class="form-signin-heading">用户注册</h2>
+        <h3 class="form-signin-heading">用户注册</h3>
+          </br>
         <input name="email" type="text" class="form-control" placeholder="请输入邮箱地址" required>
       </br>
         <input name="username" type="text" class="form-control" placeholder="请输入用户名" required>

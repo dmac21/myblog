@@ -5,11 +5,11 @@ import smtplib
 from email.mime.text import MIMEText
 from email.utils import formataddr
 
-def send_email(msg_to,confirmurl):
+def send_email(msg_to,message):
     msg_from='1073838586@qq.com'
     passwd='wkanmnnbqrzchjgb'
     subject='Account confirm'
-    msg=MIMEText(confirmurl, 'html', 'utf-8')
+    msg=MIMEText(message, 'html', 'utf-8')
     msg['Subject']=subject
     msg['From']=formataddr(['Tornado-Blog', msg_from])
     msg['To']= msg_to

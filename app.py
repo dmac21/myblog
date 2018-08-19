@@ -30,7 +30,11 @@ app=tornado.web.Application(
         (r'/login',LoginHandler),
         (r'/logout',LogoutHandler),
         (r'/register',RegisterHandler),
-
+        (r'/confirm/(.*)/(.*)', ConfirmHandler),
+        (r'/reconfirm/(.*)', ReconfirmHandler),
+        (r'/change-password', ChangePasswordHandler),
+        (r'/reset-password', ResetPasswordHandler),
+        (r'/change-email', ChangeEmailHandler),
     ],
     **setting,
 )

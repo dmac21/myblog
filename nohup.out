@@ -856,3 +856,21 @@ WHERE users.username = %(username_1)s
 [I 180816 23:45:20 web:2162] 200 GET /static/vendor/bootstrap/js/bootstrap.bundle.min.js (127.0.0.1) 7.82ms
 [I 180816 23:45:20 web:2162] 200 GET /static/vendor/bootstrap/css/bootstrap.min.css.map (127.0.0.1) 10.96ms
 [I 180816 23:45:20 web:2162] 200 GET /static/vendor/bootstrap/js/bootstrap.bundle.min.js.map (127.0.0.1) 7.37ms
+[I 180817 00:12:47 web:2162] 302 GET /logout (127.0.0.1) 0.88ms
+[I 180817 00:12:47 web:2162] 200 GET / (127.0.0.1) 4.59ms
+[I 180817 00:12:50 web:2162] 200 GET /login (127.0.0.1) 4.00ms
+2018-08-17 00:12:56,019 INFO sqlalchemy.engine.base.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+FROM users 
+WHERE users.username = %(username_1)s 
+ LIMIT %(param_1)s
+[I 180817 00:12:56 log:109] SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash 
+    FROM users 
+    WHERE users.username = %(username_1)s 
+     LIMIT %(param_1)s
+2018-08-17 00:12:56,019 INFO sqlalchemy.engine.base.Engine {'username_1': '386501732@qq.com', 'param_1': 1}
+[I 180817 00:12:56 log:109] {'username_1': '386501732@qq.com', 'param_1': 1}
+[I 180817 00:12:56 web:2162] 200 POST /login (127.0.0.1) 5.77ms
+[I 180817 00:12:58 web:2162] 200 GET /login (127.0.0.1) 3.75ms
+[I 180817 00:20:00 web:2162] 304 GET /login (127.0.0.1) 4.32ms
+[I 180817 00:20:01 web:2162] 200 GET /register (127.0.0.1) 4.63ms
+[I 180817 00:20:19 web:2162] 304 GET /login (127.0.0.1) 3.82ms

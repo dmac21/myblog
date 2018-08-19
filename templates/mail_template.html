@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <div class="main_container" style="background-color: #e4e9f0;border: 1px solid #dcdfe3;padding: 40px;font-size:12px">
+        <div class="main" style="border-radius: 4px;padding-left: 20px;width:800px;margin: 0 auto;position: relative;box-shadow: 1px 1px 15px 1px rgba(0,0,0,.1);background-color: white;">
+            <div class="left_style" style="position: absolute;left: -16px;width: 20px;top: 10px;bottom: 7px;background-color:#e4e9f0;background-image:url('http://7xsmqt.com2.z0.glb.qiniucdn.com/left1.png')"></div>
+            <div class="main_content">
+                <div class="nav" style="height: 40px;border-bottom: 2px solid #F8B537;"></div>
+                <div class="content" style="padding: 30px 60px;text-align: left;">
+                    <div class="title" style="padding-bottom: 20px;font-size: 14px;text-align: center;">{{ title }}</div>
+                    <div class="content_detail">
+                        <div class="user_info"><span>亲爱的</span><span style='margin:0 5px;'>{{ username }},</span><span>您好:</span></div>
+                        <div class="link">
+                            <div style="margin: 7px 0;">你需要点击以下链接<a href="http://127.0.0.1:5000/confirm/{{ username }}/{{ content }}">http://127.0.0.1:5000/confirm/{{ username }}/{{ content }}</a>进行账户激活</div>
+                        </div>
+                    </div>
+                    <div class="idealsee_info" style="margin: 30px 0;">
+                        <div style="margin: 7px 0;">Tornado Mail Test</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

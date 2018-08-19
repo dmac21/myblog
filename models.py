@@ -4,7 +4,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Integer,Column,String,Text,DateTime
+from sqlalchemy import Integer,Column,String,Text,DateTime,Boolean
 from datetime import datetime
 import pymysql
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -15,7 +15,7 @@ pymysql.install_as_MySQLdb()
 engine = create_engine('mysql://root:f825c9e08b@127.0.0.1/tornado_blog',encoding='utf-8',echo=True)
 Base = declarative_base(bind=engine)
 Session=sessionmaker(bind=engine)
-s=Session()
+session=Session()
 
 class User(Base):
     __tablename__ = 'users'
@@ -23,6 +23,7 @@ class User(Base):
     username = Column(String(64), unique=True, index=True)
     email = Column(String(64), unique=True, index=True)
     password_hash = Column(String(128))
+    confirmed = Column(Boolean, default=False)
 
     @property
     def password(self):
@@ -39,6 +40,18 @@ class User(Base):
         s=Serializer('some hard to guess key',expires_in=expiration)
         return s.dumps({"confirm":self.id}).decode('utf-8')
 
+    def confirm(self,token):
+        s = Serializer('some hard to guess key')
+        try:
+            data = s.loads(token.encode('utf-8'))
+        except:
+            return False
+        if data.get('confirm') != self.id:
+            return False
+        self.confirmed = True
+        session.add(self)
+        session.commit()
+        return True
 
 
 class Article(Base):
