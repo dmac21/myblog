@@ -14,17 +14,14 @@ class BaseHandler(tornado.web.RequestHandler):
 
 class MainHandler(BaseHandler):
 
-    #@tornado.web.authenticated
+    @tornado.web.authenticated
     def get(self):
-        self.render('index.html',user=self.current_user)
-
-    def put(self):
-        self.write('hello dmac')
+        self.render('index.html')
 
 class LoginHandler(BaseHandler):
 
      def get(self):
-         self.render('login.html',user=self.current_user)
+         self.render('login.html', message='')
 
      def post(self):
          username = self.get_argument('username')
@@ -37,7 +34,7 @@ class LoginHandler(BaseHandler):
              else:
                  self.render('unconfirmed.html', username=username)
          else:
-             self.write('login failed! username :{} , password :{}'.format(username,password))
+             self.render('login.html', message='Invalid username or password!')
 
 class LogoutHandler(BaseHandler):
 
@@ -61,8 +58,7 @@ class RegisterHandler(tornado.web.RequestHandler):
         token = user.generate_confirmation_token()
         message = Loader('templates').load('mail_template.html').generate(title="Tornado-blog",username=username,content=token)
         send_email(msg_to=user.email, message=message)
-        print('An email has been sent to you email-address!')
-        self.redirect('/login')
+        self.render('login.html', message='An email has been sent to you email-address!')
 
 class ConfirmHandler(BaseHandler):
 
@@ -85,13 +81,27 @@ class ReconfirmHandler(BaseHandler):
         token = user.generate_confirmation_token()
         message = Loader('templates').load('mail_template.html').generate(title="Tornado-blog", username=username, content=token)
         send_email(msg_to=user.email, message=message)
-        print('A new email has been sent to you email-address!')
-        self.redirect('/login')
+        self.render('login.html', message='A new email has been sent to you email-address!')
 
 class ChangePasswordHandler(BaseHandler):
 
+    @tornado.web.authenticated
     def get(self):
-        self.render('change_password.html')
+        self.render('change_password.html', message='')
+
+    @tornado.web.authenticated
+    def post(self):
+        username = self.get_current_user()
+        old_password = self.get_argument('old_password')
+        password = self.get_argument('password')
+        user = session.query(User).filter(User.username == username).first()
+        if user.verify_password(old_password):
+            user.password = password
+            session.add(user)
+            session.commit()
+            self.render('login.html', message='You has been update your password!')
+        else:
+            self.render('change_password.html', message='Invalid password!')
 
 class ChangeEmailHandler(BaseHandler):
 
@@ -100,6 +110,7 @@ class ChangeEmailHandler(BaseHandler):
 
 class ResetPasswordHandler(BaseHandler):
 
+    @tornado.web.authenticated
     def get(self):
         self.render('reset_password.html')
 

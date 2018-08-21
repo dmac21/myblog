@@ -1,6 +1,11 @@
 {% extends "base.html"%}
 
 {% block page_content%}
+{% if message %}
+<div class="alert alert-warning" role="alert">
+  {{ message }}
+</div>
+{% end %}
 <div class="col-md-3" id="login_form" style="float:none; margin:0 auto; margin-top:5%">
       <form action="/login" method="post" class="form-signin" role="form">
         <h3 class="form-signin-heading">用户登录</h3>

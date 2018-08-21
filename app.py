@@ -9,6 +9,7 @@ from tornado.options import define,options
 import os.path as op
 from handlers import *
 from models import Base
+from tornado import web
 
 define("port",default=5000,type=int,help="app run in the define port")
 
@@ -19,14 +20,14 @@ setting={
     'template_path':op.join(op.dirname(__file__),'templates'),
     'static_path':op.join(op.dirname(__file__),'static'),
     'debug':True,
-    #'login_url':'/login',
+    'login_url':'/login',
     #'xsrf_cookies':True,
     'cookie_secret':'f825c9e08b'
 }
 
 app=tornado.web.Application(
     handlers=[
-        (r'/',MainHandler),
+        web.URLSpec(r'/',MainHandler, name='index'),
         (r'/login',LoginHandler),
         (r'/logout',LogoutHandler),
         (r'/register',RegisterHandler),
