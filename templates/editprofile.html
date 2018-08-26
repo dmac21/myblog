@@ -1,0 +1,22 @@
+{% extends "base.html"%}
+
+{% block page_content%}
+
+<div class="col-md-3" id="login_form" style="float:none; margin:0 auto; margin-top:5%">
+      <form action="/edit-profile" method="post" class="form-signin" role="form">
+        <h3 class="form-signin-heading">修改你的个人资料</h3>
+          </br>
+        <input name="name" type="text" class="form-control" placeholder="请输入你的姓名" required>
+      </br>
+        <input name="location" type="text" class="form-control" placeholder="所在城市" required>
+          </br>
+        <input name="occupation" type="text" class="form-control" placeholder="职业" required>
+      </br>
+        <input name="industry" type="text" class="form-control" placeholder="所在行业" required>
+          </br>
+          <textarea name="about_me" class="form-control" placeholder="个人简介" required></textarea>
+          </br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">完成</button>
+      </form>
+</div>
+{% end %}

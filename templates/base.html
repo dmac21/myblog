@@ -10,14 +10,24 @@
 
     <title>Tonardo-博客</title>
 
-    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/css/toastr.css" rel="stylesheet">
-    <link href="static/css/blog-home.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+
+    <script src="static/jquery/jquery.min.js"></script>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>-->
+    <script src="static/js/moment.js"></script>
+    <script>
+        window.setTimeout(function(){
+        $('[data-dismiss="alert"]').alert('close');
+    },2000);
+    </script>
 
 </head>
 {% end %}
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/">Tonardo-博客</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -29,14 +39,18 @@
       </li>
     </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">首页</a>
+      </li>
         {% if current_user %}
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown active">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{ current_user }}
+          <img src="{{ current_user.gravatar(size=18) }}">{{ current_user.username }}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/change-password">修改密码</a>
           <a class="dropdown-item" href="/reset-password">重置密码</a>
+          <a class="dropdown-item" href="/user?username={{ current_user.username }}">个人资料</a>
           <a class="dropdown-item" href="/logout">退出</a>
         </div>
       </li>
@@ -55,8 +69,7 @@
     {% end %}
 
     <!-- Bootstrap core JavaScript -->
-    <script src="static/vendor/jquery/jquery.min.js"></script>
-    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
 </body>
 </html>

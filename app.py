@@ -36,6 +36,8 @@ app=tornado.web.Application(
         (r'/change-password', ChangePasswordHandler),
         (r'/reset-password', ResetPasswordHandler),
         (r'/change-email', ChangeEmailHandler),
+        (r'/user', UserprofileHandler),
+        (r'/edit-profile', EditUserprofileHandler),
     ],
     **setting,
 )

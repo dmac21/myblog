@@ -1,0 +1,23 @@
+{% extends "base.html"%}
+
+{% block page_content%}
+{% if message %}
+<div class="alert alert-success" role="alert">
+  {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% end %}
+<div style="margin:0 auto; margin-top:10%; width: 90%">
+<img class="rounded float-left" width="200px" height="200px" src="{{ user.gravatar(size=200) }}">
+<div style="padding-left:220px">
+{% if user.name %}<h1>{{ user.name }}</h1>{% else %}<h1>你的名字</h1>{% end %}
+{% if user.location %}<p>所在地：{{ user.location }}</p>{% else %}<p>所在地：暂没填写</p>{% end %}
+{% if user.industry %}<p>所在行业：{{ user.industry }}</p>{% else %}<p>所在行业：暂没填写</p>{% end %}
+{% if user.occupation %}<p>职业：{{ user.occupation }}</p>{% else %}<p>职业：暂没填写</p>{% end %}
+{% if user.about_me %}<p>个人简介：{{ user.about_me }}</p>{% else %}<p>个人简介：暂没填写</p>{% end %}
+<a class="btn btn-info" href="/edit-profile">编辑资料</a>
+</div>
+</div>
+{% end %}

@@ -2,21 +2,36 @@
 # @Author  : dmac
 
 import tornado.web
-from models import User,session
+from models import User,session, Post
 from utils.email import send_email
+from utils.moment import momentjs
 from tornado.template import Loader
 import time
 
 
 class BaseHandler(tornado.web.RequestHandler):
     def get_current_user(self):
-        return self.get_secure_cookie('username')
+        username = self.get_secure_cookie('username')
+        user = session.query(User).filter(User.username == username).first()
+        return user
 
 class MainHandler(BaseHandler):
 
     @tornado.web.authenticated
     def get(self):
-        self.render('index.html')
+        current_page = int(self.get_argument('page', 1))
+        pagesize = 10
+        total_page_count = int(session.query(Post).count()/pagesize)
+        posts = session.query(Post).order_by(Post.timestamp.desc()).limit(pagesize).offset((current_page-1)*pagesize)
+        self.render('index.html', posts=posts, total_page_count=total_page_count, current_page=current_page)
+
+    def post(self):
+        current_user = self.get_current_user()
+        post = self.get_arguments('post')
+        post = Post(body=post, author=current_user)
+        session.add(post)
+        session.commit()
+        self.redirect('/')
 
 class LoginHandler(BaseHandler):
 
@@ -118,3 +133,29 @@ class ErrorHandler(tornado.web.RequestHandler):
 
     def get(self):
         self.render('404.html')
+
+class UserprofileHandler(BaseHandler):
+
+    @tornado.web.authenticated
+    def get(self):
+        username = self.get_argument('username')
+        user = session.query(User).filter(User.username == username).first()
+        self.render('user.html', user=user, message='')
+
+class EditUserprofileHandler(BaseHandler):
+
+    @tornado.web.authenticated
+    def get(self):
+        self.render('editprofile.html')
+
+    @tornado.web.authenticated
+    def post(self, *args, **kwargs):
+        user = self.get_current_user()
+        user.name = self.get_argument('name')
+        user.location = self.get_argument('location')
+        user.occupation = self.get_argument('occupation')
+        user.industry = self.get_argument('industry')
+        user.about_me = self.get_argument('about_me')
+        session.add(user)
+        session.commit()
+        self.render('user.html', user=user, message='you has been update you profile')

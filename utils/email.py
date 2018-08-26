@@ -18,7 +18,7 @@ def send_email(msg_to,message):
         s.login(msg_from,passwd)
         s.sendmail(msg_from,msg_to,msg.as_string())
         print ('发送成功')
-    except:
-        print ('发送失败')
+    except Exception as e:
+        raise e
     finally:
         s.quit()
