@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="tornado_blog.db" uuid="9dadec3d-dc22-478d-a62b-975170e0f742">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <secret-storage>master_key</secret-storage>
+      <auth-required>false</auth-required>
+      <first-sync>true</first-sync>
+      <introspection-schemas>*:*</introspection-schemas>
+    </data-source>
+  </component>
+</project>

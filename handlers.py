@@ -4,7 +4,6 @@
 import tornado.web
 from models import User,session, Post
 from utils.email import send_email
-from utils.moment import momentjs
 from tornado.template import Loader
 import time
 
@@ -12,6 +11,9 @@ import time
 class BaseHandler(tornado.web.RequestHandler):
     def get_current_user(self):
         username = self.get_secure_cookie('username')
+        if not username:
+            return None
+        username = username.decode('utf-8')
         user = session.query(User).filter(User.username == username).first()
         return user
 

@@ -13,7 +13,7 @@ import hashlib
 
 pymysql.install_as_MySQLdb()
 
-engine = create_engine('mysql://root:f825c9e08b@127.0.0.1/tornado_blog',encoding='utf-8',echo=True)
+engine = create_engine('sqlite:///tornado_blog.db',encoding='utf-8',echo=True)
 Base = declarative_base(bind=engine)
 Session=sessionmaker(bind=engine)
 session=Session()
