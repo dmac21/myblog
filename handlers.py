@@ -17,6 +17,12 @@ class BaseHandler(tornado.web.RequestHandler):
         user = session.query(User).filter(User.username == username).first()
         return user
 
+class WriteHandler(BaseHandler):
+
+    @tornado.web.authenticated
+    def get(self):
+        self.render('write.html')
+
 class MainHandler(BaseHandler):
 
     @tornado.web.authenticated
@@ -29,7 +35,7 @@ class MainHandler(BaseHandler):
 
     def post(self):
         current_user = self.get_current_user()
-        post = self.get_arguments('post')
+        post = self.get_argument('my-editormd-html-code')
         post = Post(body=post, author=current_user)
         session.add(post)
         session.commit()

@@ -38,6 +38,7 @@ app=tornado.web.Application(
         (r'/change-email', ChangeEmailHandler),
         (r'/user', UserprofileHandler),
         (r'/edit-profile', EditUserprofileHandler),
+        (r'/write', WriteHandler),
     ],
     **setting,
 )
