@@ -6,6 +6,8 @@ from models import User,session, Post
 from utils.email import send_email
 from tornado.template import Loader
 import time
+from datetime import datetime
+import os
 
 
 class BaseHandler(tornado.web.RequestHandler):
@@ -22,6 +24,33 @@ class WriteHandler(BaseHandler):
     @tornado.web.authenticated
     def get(self):
         self.render('write.html')
+
+class UploadHandler(BaseHandler):
+
+    @tornado.web.authenticated
+    def post(self):
+        upload_path = os.path.join(os.path.dirname(__file__), 'static/upload')
+
+        file = self.request.files['editormd-image-file']
+        if not file:
+            res = {
+                'success': 0,
+                'message': u'图片格式异常'
+            }
+        else:
+            # 返回
+            for meta in file:
+                filename = meta['filename']
+                # filename = datetime.now().strftime('%Y%m%d%H%M%S') + filename
+                filepath = os.path.join(upload_path, filename)
+                with open(filepath, 'wb') as up:
+                    up.write(meta['body'])
+                res = {
+                    'success': 1,
+                    'message': u'图片上传成功',
+                    'url': '/static/upload/{}'.format(filename)
+                }
+        self.write(res)
 
 class MainHandler(BaseHandler):
 

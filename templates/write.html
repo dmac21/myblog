@@ -1,9 +1,11 @@
+{% autoescape None %}
 {% extends "base.html" %}
 
 {% block page_content %}
         <!--<link rel="stylesheet" href="static/mdeditor/examples/css/style.css" />-->
         <link rel="stylesheet" href="static/mdeditor/css/editormd.css" />
         <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
+        <!--<script src="http://html5media.googlecode.com/svn/trunk/src/html5media.min.js"></script>-->
         <div id="layout">
             <form action="/" method="post" style="width:100%;height:100%;margin-top:1%;margin-bottom:1%">
             <div class="col-md-3"><h5>今天写点什么？</h5></div>
@@ -27,7 +29,13 @@
                     height  : 400,
                     syncScrolling : "single",
                     path    : "static/mdeditor/lib/",
-                    saveHTMLToTextarea : true
+                    saveHTMLToTextarea : true,
+                    // htmlDecode : true,
+                    htmlDecode : "style,script,iframe,video",
+                    //启动本地图片上传功能
+                    imageUpload:true,
+                    imageFormats   : ["jpg", "jpeg", "gif", "png", "bmp", "webp", "mp4"],
+                    imageUploadURL : "/upload"
                 });
             });
         </script>

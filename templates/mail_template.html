@@ -16,7 +16,7 @@
                     <div class="content_detail">
                         <div class="user_info"><span>亲爱的</span><span style='margin:0 5px;'>{{ username }},</span><span>您好:</span></div>
                         <div class="link">
-                            <div style="margin: 7px 0;">你需要点击以下链接<a href="http://127.0.0.1:5000/confirm/{{ username }}/{{ content }}">http://127.0.0.1:5000/confirm/{{ username }}/{{ content }}</a>进行账户激活</div>
+                            <div style="margin: 7px 0;">你需要点击以下链接<a href="{{reverse_url('index')}}confirm/{{ username }}/{{ content }}">{{reverse_url('index')}}confirm/{{ username }}/{{ content }}</a>进行账户激活</div>
                         </div>
                     </div>
                     <div class="idealsee_info" style="margin: 30px 0;">

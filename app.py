@@ -39,6 +39,7 @@ app=tornado.web.Application(
         (r'/user', UserprofileHandler),
         (r'/edit-profile', EditUserprofileHandler),
         (r'/write', WriteHandler),
+        (r'/upload',UploadHandler),
     ],
     **setting,
 )
