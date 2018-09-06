@@ -68,7 +68,7 @@ class User(Base):
         session.commit()
         return True
 
-    def gravatar(self, size=200, default='identicon', ratting='g'):
+    def gravatar(self, size=200, default='wavatar', ratting='g'):
         url = 'http://www.gravatar.com/avatar'
         hash = self.avatar_hash or hashlib.md5(self.email.encode('utf-8')).hexdigest()
         return '{url}/{hash}?s={size}&d{default}&r={ratting}'.format(url=url, hash=hash, size=size, default=default, ratting=ratting)

@@ -7,15 +7,15 @@
         <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
         <!--<script src="http://html5media.googlecode.com/svn/trunk/src/html5media.min.js"></script>-->
         <div id="layout">
-            <form action="/" method="post" style="width:100%;height:100%;margin-top:1%;margin-bottom:1%">
+            <!--<form action="/" method="post" style="width:100%;height:100%;margin-top:1%;margin-bottom:1%">-->
             <div class="col-md-3"><h5>今天写点什么？</h5></div>
-            <div class="col-md-3"><button class="btn btn-sm btn-primary" type="submit">发布</button></div>
+            <div class="col-md-3"><button class="btn btn-sm btn-primary" onclick="post()">发布</button></div>
             <div id="my-editormd">
                 <textarea id="my-editormd-markdown-doc" name="my-editormd-markdown-doc" style="display:none;" required></textarea>
                 <textarea id="my-editormd-html-code" name="my-editormd-html-code" style="display:none;" required></textarea>
             </div>
                 <!--<div class="col-md-3"><button class="btn btn-sm btn-primary" type="submit">发布</button></div>-->
-            </form>
+            <!--</form>-->
         </div>
         <script src="static/jquery/jquery.js"></script>
         <script src="static/mdeditor/editormd.min.js"></script>
@@ -29,14 +29,45 @@
                     height  : 400,
                     syncScrolling : "single",
                     path    : "static/mdeditor/lib/",
-                    saveHTMLToTextarea : true,
+                    // saveHTMLToTextarea : true,
                     // htmlDecode : true,
                     htmlDecode : "style,script,iframe,video",
+                    // watch : false,
                     //启动本地图片上传功能
                     imageUpload:true,
                     imageFormats   : ["jpg", "jpeg", "gif", "png", "bmp", "webp", "mp4"],
                     imageUploadURL : "/upload"
                 });
+
+                //$('#my-editormd-html-code').html(testEditor.getPreviewedHTML());
+                //$('#my-editormd-html-code').html($(".editormd-preview").html());
             });
         </script>
+        <script>
+                function post() {
+                    $.ajax({
+                    //几个参数需要注意一下
+                        type: "post",//方法类型
+                        dataType: "text",//预期服务器返回的数据类型
+                        url: "/" ,//url
+                        data: {"preview":$(".editormd-preview").html()},
+                        success: function (result) {
+                            console.log(result);//打印服务端返回的数据(调试用)
+                            location.href = "/";
+                            if (result.resultCode === 200) {
+                                alert("SUCCESS");
+                            }
+                        },
+                        error : function() {
+                            alert("异常！");
+                        }
+                    });
+                }
+        </script>
+        <!--<script>-->
+            <!--function test() {-->
+                 <!--$('#my-editormd-html-code').html($(".editormd-preview").html());-->
+            <!--}-->
+        <!--</script>-->
+
 {% end %}

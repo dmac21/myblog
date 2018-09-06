@@ -52,7 +52,13 @@
                     {{ post.author.username }}
                 </div>
                 <div class="post-body">
-                    {% raw post.body %}
+                    {%  if "code" in post.body %}
+                    <div class="markdown-body editormd-preview-container" previewcontainer="true" style="padding: 20px;">
+                        {% raw post.body %}
+                    <div>
+                    {% else %}
+                        {% raw post.body %}
+                    {% end %}
                 </div>
                 </div>
                 </li>
