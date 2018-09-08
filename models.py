@@ -102,6 +102,8 @@ class User(Base):
 class Post(Base):
     __tablename__ = 'posts'
     id = Column(Integer, primary_key=True)
+    title = Column(String(128))
+    abstract = Column(Text())
     body = Column(Text())
     timestamp = Column(DateTime, index=True, default=datetime.utcnow)
     author_id = Column(Integer, ForeignKey('users.id'))

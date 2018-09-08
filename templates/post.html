@@ -5,16 +5,20 @@
         <!--<link rel="stylesheet" href="static/mdeditor/examples/css/style.css" />-->
         <link rel="stylesheet" href="static/mdeditor/css/editormd.css" />
         <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
-        <!--<script src="http://html5media.googlecode.com/svn/trunk/src/html5media.min.js"></script>-->
         <div id="layout">
             <!--<form action="/" method="post" style="width:100%;height:100%;margin-top:1%;margin-bottom:1%">-->
-            <div class="col-md-3"><h5>今天写点什么？</h5></div>
-            <div class="col-md-3"><button class="btn btn-sm btn-primary" onclick="post()">发布</button></div>
+            <div class="col-md-6" style="text-align:center; padding-top:20px;padding-bottom:20px;">
+            <input id="title" type="text" name="title" class="form-control" placeholder="请输入文章标题" required autofocus>
+            </br>
+            <textarea id="abstract" type="text" name="abstract" class="form-control" placeholder="请输入文章摘要" required autofocus></textarea>
+            </div>
             <div id="my-editormd">
                 <textarea id="my-editormd-markdown-doc" name="my-editormd-markdown-doc" style="display:none;" required></textarea>
                 <textarea id="my-editormd-html-code" name="my-editormd-html-code" style="display:none;" required></textarea>
             </div>
-                <!--<div class="col-md-3"><button class="btn btn-sm btn-primary" type="submit">发布</button></div>-->
+            <div class="col-md-4" style="text-align:center; margin:0 auto">
+                <button class="btn btn-sm btn-primary btn-block" onclick="post()">发布</button>
+            </div>
             <!--</form>-->
         </div>
         <script src="static/jquery/jquery.js"></script>
@@ -26,7 +30,7 @@
                 testEditor = editormd("my-editormd", {
                     placeholder : "请开始你的表演...",
                     width   : "98%",
-                    height  : 400,
+                    height  : 350,
                     syncScrolling : "single",
                     path    : "static/mdeditor/lib/",
                     // saveHTMLToTextarea : true,
@@ -50,7 +54,7 @@
                         type: "post",//方法类型
                         dataType: "text",//预期服务器返回的数据类型
                         url: "/" ,//url
-                        data: {"preview":$(".editormd-preview").html()},
+                        data: {"title":$("#title").val(), "abstract":$("#abstract").val(),"preview":$(".editormd-preview").html()},
                         success: function (result) {
                             console.log(result);//打印服务端返回的数据(调试用)
                             location.href = "/";
@@ -64,10 +68,5 @@
                     });
                 }
         </script>
-        <!--<script>-->
-            <!--function test() {-->
-                 <!--$('#my-editormd-html-code').html($(".editormd-preview").html());-->
-            <!--}-->
-        <!--</script>-->
 
 {% end %}

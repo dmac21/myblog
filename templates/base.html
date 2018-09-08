@@ -10,23 +10,14 @@
 
     <title>Tonardo-博客</title>
 
-    <link href="static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="static/css/toastr.css" rel="stylesheet">
-    <link href="static/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="static/mdeditor/css/editormd.css" />
+    <link href="{{static_url('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{static_url('css/toastr.css')}}" rel="stylesheet">
+    <link href="{{static_url('css/style.css')}}" rel="stylesheet">
+    <link href="{{static_url('mdeditor/css/editormd.css')}}" rel="stylesheet">
 
-    <script src="static/jquery/jquery.min.js"></script>
-    <script src="static/js/bootstrap.bundle.min.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>-->
-    <script src="static/js/moment.js"></script>
-    <!--<script src="static/js/markdown.js"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js" charset="utf-8"> </script>-->
-    <!--<script>-->
-        <!--window.setTimeout(function(){-->
-        <!--$('[data-dismiss="alert"]').alert('close');-->
-    <!--},2000);-->
-    <!--</script>-->
-
+    <script src="{{static_url('jquery/jquery.min.js')}}"></script>
+    <script src="{{static_url('js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{static_url('js/moment.js')}}"></script>
 
 </head>
 {% end %}
@@ -44,7 +35,7 @@
     </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="nav-item active">
-          <a class="nav-link" href="/write">写文章</a>
+          <a class="nav-link" href="/post">写文章</a>
       </li>
         {% if current_user %}
       <li class="nav-item dropdown active">

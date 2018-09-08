@@ -19,11 +19,15 @@ class BaseHandler(tornado.web.RequestHandler):
         user = session.query(User).filter(User.username == username).first()
         return user
 
-class WriteHandler(BaseHandler):
+class PostHandler(tornado.web.RequestHandler):
 
-    @tornado.web.authenticated
-    def get(self):
-        self.render('write.html')
+    # @tornado.web.authenticated
+    def get(self, postid=None):
+        if postid:
+            post = session.query(Post).filter(Post.id == postid).first()
+            self.render('article.html', post=post)
+        else:
+            self.render('post.html')
 
 class UploadHandler(BaseHandler):
 
@@ -62,10 +66,13 @@ class MainHandler(BaseHandler):
         posts = session.query(Post).order_by(Post.timestamp.desc()).limit(pagesize).offset((current_page-1)*pagesize)
         self.render('index.html', posts=posts, total_page_count=total_page_count, current_page=current_page)
 
+    @tornado.web.authenticated
     def post(self):
         current_user = self.get_current_user()
         post = self.get_argument('preview')
-        post = Post(body=post, author=current_user)
+        abstract = self.get_argument('abstract')
+        title = self.get_argument('title')
+        post = Post(body=post, title=title, abstract=abstract, author=current_user)
         session.add(post)
         session.commit()
         self.redirect('/')
