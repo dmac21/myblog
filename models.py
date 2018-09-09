@@ -105,6 +105,7 @@ class Post(Base):
     title = Column(String(128))
     abstract = Column(Text())
     body = Column(Text())
+    body_html = Column(Text())
     timestamp = Column(DateTime, index=True, default=datetime.utcnow)
     author_id = Column(Integer, ForeignKey('users.id'))
 

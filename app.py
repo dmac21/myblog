@@ -40,7 +40,8 @@ app=tornado.web.Application(
         (r'/edit-profile', EditUserprofileHandler),
         (r'/post', PostHandler),
         (r'/post/(\d+)', PostHandler),
-        (r'/upload',UploadHandler),
+        (r'/edit/(\d+)', EditHandler),
+        (r'/upload', UploadHandler),
     ],
     **setting,
 )

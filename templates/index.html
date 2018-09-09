@@ -5,15 +5,16 @@
         <div class="col-md-12">
           <h1 class="my-4">
             {% if current_user.username %}
-            <small>你好，{{ current_user.username }}</small>
+            <small>欢迎回来，{{ current_user.username }}</small>
             {% else %}
             <small>你好，陌生人</small>
             {% end %}
           </h1>
-        </div>
         <header>
-                <h5>近期文章</h5>
+            <p><span class="badge badge-primary">最新动态</span></p>
         </header>
+        </div>
+
         <!--<script type="text/javascript">-->
             <!--function test(){-->
                 <!--var src = document.getElementById('text-input').value;-->
@@ -52,10 +53,16 @@
                     {{ post.author.username }}
                 </div>
                 <div class="post-body">
-                        {% raw post.title %}
+                    <big>{% raw post.title %}</big>
+                </div>
+                <div class="post-body">
+                    <small>{% raw post.abstract %}</small>
                 </div>
                 <div class="post-footer">
-                    <a href="/post/{{ post.id }}"><span class="badge badge-pill badge-danger">查看详情</span></a>
+                    {% if post.author.username == current_user.username %}
+                    <a href="/edit/{{ post.id }}"><span class="badge badge-pill badge-danger">编辑文章</span></a>
+                    {% end %}
+                    <a href="/post/{{ post.id }}"><span class="badge badge-pill badge-info">查看详情</span></a>
                 </div>
                 </div>
                 </li>

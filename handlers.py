@@ -29,6 +29,28 @@ class PostHandler(tornado.web.RequestHandler):
         else:
             self.render('post.html')
 
+class EditHandler(BaseHandler):
+
+    @tornado.web.authenticated
+    def get(self, postid):
+        post = session.query(Post).filter(Post.id == postid).first()
+        self.render('edit_post.html', post=post)
+
+    @tornado.web.authenticated
+    def post(self, postid):
+        title = self.get_argument('title')
+        abstract = self.get_argument('abstract')
+        source = self.get_argument('source')
+        preview = self.get_argument('preview')
+        post = session.query(Post).filter(Post.id == postid).first()
+        post.title = title
+        post.abstract = abstract
+        post.body = source
+        post.body_html = preview
+        post.timestamp = datetime.utcnow()
+        session.commit()
+
+
 class UploadHandler(BaseHandler):
 
     @tornado.web.authenticated
@@ -69,10 +91,11 @@ class MainHandler(BaseHandler):
     @tornado.web.authenticated
     def post(self):
         current_user = self.get_current_user()
-        post = self.get_argument('preview')
+        source = self.get_argument('source')
+        preview = self.get_argument('preview')
         abstract = self.get_argument('abstract')
         title = self.get_argument('title')
-        post = Post(body=post, title=title, abstract=abstract, author=current_user)
+        post = Post(body=source, body_html=preview, title=title, abstract=abstract, author=current_user)
         session.add(post)
         session.commit()
         self.redirect('/')
