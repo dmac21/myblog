@@ -41,6 +41,7 @@ app=tornado.web.Application(
         (r'/post', PostHandler),
         (r'/post/(\d+)', PostHandler),
         (r'/edit/(\d+)', EditHandler),
+        (r'/delete/(\d+)', DeleteHandler),
         (r'/upload', UploadHandler),
     ],
     **setting,

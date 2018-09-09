@@ -18,6 +18,37 @@ Base = declarative_base(bind=engine)
 Session=sessionmaker(bind=engine)
 session=Session()
 
+class Permission:
+    FOLLOW = 0x01
+    COMMENT = 0x02
+    WRITE_ARTICLE = 0x04
+    MODERATE_COMMENTS = 0x08
+    ADMINISTER = 0x80
+
+class Role(Base):
+    __tablename__ = 'roles'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(64), unique=True)
+    default = Column(Boolean, default=False, index=True)
+    permission = Column(Integer)
+    users = relationship('User', backref='role', lazy='dynamic')
+
+    @staticmethod
+    def insert_roles():
+        roles = {
+            'User':(Permission.FOLLOW|Permission.COMMENT|Permission.WRITE_ARTICLE, True),
+            'Moderator':(Permission.FOLLOW|Permission.COMMENT|Permission.WRITE_ARTICLE|Permission.MODERATE_COMMENTS,False),
+            'Administrator':(0xff, False)
+        }
+        for r in roles:
+            role = session.query(Role).filter_by(name = r).first()
+            if role is None:
+                role = Role(name = r)
+            role.permission = roles[r][0]
+            role.default = roles[r][1]
+            session.add(role)
+        session.commit()
+
 class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
@@ -34,8 +65,21 @@ class User(Base):
     posts = relationship('Post',backref='author', lazy='dynamic')
     register_date = Column(DateTime(), default=datetime.utcnow)
     last_seen = Column(DateTime(), default=datetime.utcnow)
+    role_id = Column(Integer, ForeignKey('roles.id'))
 
+    def __init__(self, **kwargs):
+        super(User, self).__init__(**kwargs)
+        if self.role is None:
+            if self.email == '1073838586@qq.com':
+                self.role = session.query(Role).filter_by(name='Administrator').first()
+            if self.role is None:
+                self.role = session.query(Role).filter_by(default=True).first()
 
+    def can(self, permission):
+        return self.role is not None and (self.role.permission & permission)==permission
+
+    def is_administrator(self):
+        return self.can(Permission.ADMINISTER)
     # def __init__(self, **kwargs):
     #     if self.email is not None and self.avatar_hash is None:
     #         self.avatar_hash = hashlib.md5(self.email.encode('utf-8')).hexdigest()
@@ -68,10 +112,10 @@ class User(Base):
         session.commit()
         return True
 
-    def gravatar(self, size=200, default='wavatar', ratting='g'):
+    def gravatar(self, size=200, default='monsterid', ratting='g'):
         url = 'http://www.gravatar.com/avatar'
         hash = self.avatar_hash or hashlib.md5(self.email.encode('utf-8')).hexdigest()
-        return '{url}/{hash}?s={size}&d{default}&r={ratting}'.format(url=url, hash=hash, size=size, default=default, ratting=ratting)
+        return '{url}/{hash}?s={size}&d={default}&r={ratting}'.format(url=url, hash=hash, size=size, default=default, ratting=ratting)
 
     @staticmethod
     def generate_fake(count=100):
@@ -131,3 +175,7 @@ class Post(Base):
 # s.add(u)
 # s.commit()
 # s.close()
+
+Role.metadata.create_all()
+r = Role()
+r.insert_roles()

@@ -50,6 +50,14 @@ class EditHandler(BaseHandler):
         post.timestamp = datetime.utcnow()
         session.commit()
 
+class DeleteHandler(BaseHandler):
+
+    @tornado.web.authenticated
+    def get(self, postid):
+        post = session.query(Post).filter(Post.id == postid).first()
+        session.delete(post)
+        session.commit()
+        self.redirect('/')
 
 class UploadHandler(BaseHandler):
 
